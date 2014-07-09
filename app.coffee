@@ -37,6 +37,7 @@ heavy = (cb) ->
     return
 
   return
+
 cls = require("continuation-local-storage")
 clsify = require("cls-middleware")
 express = require("express")
@@ -47,8 +48,8 @@ cookieParser = require("cookie-parser")
 bodyParser = require("body-parser")
 newrelic = require("newrelic")
 ns = cls.createNamespace("namespace")
-routes = require("./routes/index")
-users = require("./routes/users")
+routes = require("./dst/routes/index")
+users = require("./dst/routes/users")
 app = express()
 app.set "views", path.join(__dirname, "views")
 app.set "view engine", "jade"

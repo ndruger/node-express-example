@@ -4,7 +4,7 @@ module.exports = (grunt) ->
      js: ["routes/**/*.js", "test/**/*.js"]
     watch:
       coffee:
-        files: ['routes/**/*.coffee']
+        files: ['src/**/*.coffee']
         tasks: 'coffee:src'
       test:
         files: ['test/**/*.coffee']
@@ -16,9 +16,9 @@ module.exports = (grunt) ->
         files: [
           expand: true
           bare: true
-          cwd: 'routes/'
+          cwd: 'src/'
           src: '**/*.coffee'
-          dest: 'routes'
+          dest: 'dst'
           ext: '.js'
         ]
       test:
