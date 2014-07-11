@@ -38,16 +38,6 @@ router.get "/1", (req, res) ->
   ns.set "name", "test2"
   console.log('neko')
      
-  mailOptions = {
-      from: "sender@example.com",
-      to: "receiver@example.com",
-      text: "hello world!"
-  }
-
-  app.mailer.transport.sendMail(mailOptions, (error, response) =>
-    console.log(response.message)
-  )
-  
   heavy ->
     res.send "hello world"
 
