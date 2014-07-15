@@ -2,10 +2,26 @@ express = require("express")
 putil = require('../putil')
 logger = require('../plogger')
 
+logger.configure({
+  appenders: [{
+    "type": "console",
+  },
+  {
+    "type": "dateFile",
+    "filename": "log/access.log",
+    "pattern": "-yyyy-MM-dd"
+  }]
+})
+
 app.use((req, res, next) ->
   id = putil.createId()
   app.getRequestInfo().set('id', id)
   logger.setRequestInfoId(id)
-  logger.info(req.url)
   next()
+  logger.info([
+    req.headers['x-forwarded-for'] || req.client.remoteAddress,
+    req.method,
+    req.url,
+    res.statusCode,
+  ].join("\t"))
 )
