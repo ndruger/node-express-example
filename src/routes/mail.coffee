@@ -1,8 +1,5 @@
 express = require("express")
 router = express.Router()
-nodemailer = require("nodemailer")
-
-app = global.app
 
 router.get "/", (req, res) ->
      

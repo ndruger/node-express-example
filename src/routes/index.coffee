@@ -6,6 +6,4 @@ router.get "/", (req, res) ->
   res.render "index",
     title: "Express"
 
-  return
-
 module.exports = router
