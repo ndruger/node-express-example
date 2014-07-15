@@ -4,13 +4,15 @@ logger = require('../plogger')
 
 logger.configure({
   appenders: [{
-    "type": "console",
+    type: "console",
   },
   {
-    "type": "dateFile",
-    "filename": "log/access.log",
-    "pattern": "-yyyy-MM-dd"
-  }]
+    type: "dateFile",
+    filename: "log/access.log",
+    pattern: "-yyyy-MM-dd",
+#    alwaysIncludePattern: true
+  }],
+  replaceConsole: true
 })
 
 app.use((req, res, next) ->

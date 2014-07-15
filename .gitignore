@@ -16,6 +16,7 @@ dst/*
 tmp/*
 
 # log
+log/*
 npm-debug.log
 newrelic_agent.log
 
