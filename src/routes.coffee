@@ -14,12 +14,6 @@ app.use "/test", test
 app.use "/mail", mail
 app.use "/error", error
 
-try
-  throw Error('neko')
-catch e
-  console.log(util.inspect(e))
-  console.dir(e)
-
 # 
 # error handling
 #

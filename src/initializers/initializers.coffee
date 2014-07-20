@@ -21,3 +21,8 @@ app.use express.static(path.join(__dirname, "../../public"))
 
 require("./logger")
 require("./mailer")
+
+# don't move
+if app.get("env") == "development"
+  require('express-debug')(app, {
+  })
