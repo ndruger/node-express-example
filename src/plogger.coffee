@@ -17,7 +17,7 @@ logger.setRequestInfoId = (id) ->
   
 wrap(logger, 'info', (orig) =>
   (->
-    newArgs = Array.prototype.slice.apply(arguments);
+    newArgs = Array.prototype.slice.apply(arguments)
     if @_requesttInfoId
       newArgs[0] = "[#{@_requesttInfoId}] #{newArgs[0]}"
     orig.apply(logger, newArgs)

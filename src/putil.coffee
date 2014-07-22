@@ -10,6 +10,19 @@ sendExceptionMail = (err) -> # TODO: use config
     text: err.stack,
   }
   app.mailer.transport.sendMail(opt, =>)
+  
+# For file and line
+colors = require('colors')
+traceLogger = require('tracer').colorConsole({
+  format : "{{message}} (in {{file}}:{{line}})",
+  dateformat : "HH:MM:ss.L",
+  filters : [colors.underline, colors.red]
+})
+
+DP = (->
+  traceLogger.info.bind(traceLogger)
+)()
+global.DP = DP
  
 module.exports = {
   createId: createId,

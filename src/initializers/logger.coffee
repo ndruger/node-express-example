@@ -12,8 +12,9 @@ logger.configure({
     pattern: "-yyyy-MM-dd",
     alwaysIncludePattern: true
   }],
-#  replaceConsole: true
+########  replaceConsole: true
 })
+putil.updateDP
 
 app.use((req, res, next) ->
   id = putil.createId()

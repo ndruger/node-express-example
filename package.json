@@ -16,7 +16,9 @@
     "newrelic": "~1.7.5",
     "source-map-support": "~0.2.7",
     "log4js": "~0.6.15",
-    "nodemailer": "~1.0.1"
+    "nodemailer": "~1.0.1",
+    "tracer": "~0.7.1",
+    "colors": "~0.6.2"
   },
   "devDependencies": {
     "grunt": "~0.4.5",
