@@ -12,7 +12,7 @@ logger.configure({
     pattern: "-yyyy-MM-dd",
     alwaysIncludePattern: true
   }],
-########  replaceConsole: true
+# replaceConsole: true
 })
 putil.updateDP
 
@@ -26,5 +26,8 @@ app.use((req, res, next) ->
     req.method,
     req.url,
     res.statusCode,
-  ].join("\t"))
+  ].join(" "))
 )
+
+# TODO: fix
+app.use(logger.log4js.connectLogger(logger, { level: logger.log4js.levels.INFO }));

@@ -8,6 +8,8 @@ wrap = (context, name, makeProc) ->
   context[name] = makeProc(context[name])
 
 logger = log4js.getLogger()
+logger.log4js = log4js
+
 
 logger.configure = (config) ->
   log4js.configure(config)
@@ -15,6 +17,7 @@ logger.configure = (config) ->
 logger.setRequestInfoId = (id) ->
   @_requesttInfoId = id + ""
   
+
 wrap(logger, 'info', (orig) =>
   (->
     newArgs = Array.prototype.slice.apply(arguments)
