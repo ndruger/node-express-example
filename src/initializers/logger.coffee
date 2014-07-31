@@ -30,6 +30,7 @@ app.use((req, res, next) ->
 )
 
 console.log()
+console.log()
 
 # TODO: fix
 app.use(logger.log4js.connectLogger(logger, { level: logger.log4js.levels.INFO }));
