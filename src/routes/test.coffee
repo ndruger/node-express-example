@@ -1,19 +1,18 @@
 express = require("express")
 router = express.Router()
 nodemailer = require("nodemailer")
-logger = require("../plogger")
 
 newrelic = require("newrelic")
 http = require("http")
 
 heavy = (cb) ->
-  logger.info(app.getRequestInfo().get('name'))
+  logger.info(1)
   http.get "http://www.google.com", ->
-    logger.info(app.getRequestInfo().get('name'))
+    logger.info(2)
 #    newrelic.setTransactionName "neko2"
     setTimeout (->
       #    c = c || newrelic.agent.tracer.getRequestInfo();
-      logger.info(app.getRequestInfo().get('name'))
+      logger.info(3)
       cb()
     ), 1000
 

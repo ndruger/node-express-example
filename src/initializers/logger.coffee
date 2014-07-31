@@ -1,8 +1,8 @@
 express = require("express")
 putil = require('../putil')
-logger = require('../plogger')
+loggerMaker = require('../logger_maker')
 
-logger.configure({
+loggerMaker.configure({
   appenders: [{
     type: "console",
   },
@@ -16,18 +16,10 @@ logger.configure({
 })
 putil.updateDP
 
-app.use((req, res, next) ->
-  id = putil.createId()
-  app.getRequestInfo().set('id', id)
-  logger.setRequestInfoId(id)
-  next()
-  logger.info([
-    req.headers['x-forwarded-for'] || req.client.remoteAddress,
-    req.method,
-    req.url,
-    res.statusCode,
-  ].join(" "))
+loggerMaker.initExpressLogger()
+loggerMaker.setGetRequestIdProc(->
+  app.getRequestInfo().get('id')
 )
 
-# TODO: fix
-app.use(logger.log4js.connectLogger(logger, { level: logger.log4js.levels.INFO }));
+defaultLogger = loggerMaker.getLogger('default')
+global.logger = defaultLogger

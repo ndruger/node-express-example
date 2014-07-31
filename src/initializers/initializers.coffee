@@ -19,6 +19,12 @@ app.use bodyParser.urlencoded()
 app.use cookieParser()
 app.use express.static(path.join(__dirname, "../../public"))
 
+app.use((req, res, next) ->
+  id = require('cuid')();
+  app.getRequestInfo().set('id', id)
+  next()
+)
+
 require("./logger")
 require("./mailer")
 

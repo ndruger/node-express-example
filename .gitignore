@@ -20,8 +20,5 @@ log/*
 npm-debug.log
 newrelic_agent.log
 
-# lib(ruby)
-lib/*
-
 !.gitkeep
 

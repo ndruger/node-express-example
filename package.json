@@ -18,7 +18,8 @@
     "log4js": "~0.6.15",
     "nodemailer": "~1.0.1",
     "tracer": "~0.7.1",
-    "colors": "~0.6.2"
+    "colors": "~0.6.2",
+    "cuid": "~1.2.4"
   },
   "devDependencies": {
     "grunt": "~0.4.5",
