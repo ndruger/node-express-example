@@ -29,5 +29,7 @@ app.use((req, res, next) ->
   ].join(" "))
 )
 
+console.log()
+
 # TODO: fix
 app.use(logger.log4js.connectLogger(logger, { level: logger.log4js.levels.INFO }));
