@@ -8,15 +8,6 @@
 role :app, instances("test")
 
 
-# Extended Server Syntax
-# ======================
-# This can be used to drop a more detailed server definition into the
-# server list. The second argument is a, or duck-types, Hash and is
-# used to set extended properties on the server.
-
-server 'example.com', user: 'deploy', roles: %w{web app}, my_property: :my_value
-
-
 # Custom SSH Options
 # ==================
 # You may pass any option but keep in mind that net/ssh understands a
@@ -33,13 +24,3 @@ server 'example.com', user: 'deploy', roles: %w{web app}, my_property: :my_value
 #
 # And/or per server (overrides global)
 # ------------------------------------
-server 'example.com',
- user: 'snowtest',
-  roles: %w{app},
-  ssh_options: {
-    user: 'snowtest', # overrides user setting above
-#    keys: %w(#{ENV['HOME']}/.ssh/aws_base.pem),
-    forward_agent: false,
-    auth_methods: %w(publickey)
-    # password: 'please use keys'
-  }
