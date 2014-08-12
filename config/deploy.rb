@@ -1,14 +1,14 @@
 # config valid only for Capistrano 3.1
 lock '3.2.1'
 
-set :application, 'my_app_name'
-set :repo_url, 'git@example.com:me/my_repo.git'
+set :application, 'node-express-example'
+set :repo_url, 'git@github.com:ndruger/node-express-example.git'
 
 # Default branch is :master
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }.call
 
 # Default deploy_to directory is /var/www/my_app
-# set :deploy_to, '/var/www/my_app'
+set :deploy_to, '/var/www/#{fetch(:full_app_name)}'
 
 # Default value for :scm is :git
 # set :scm, :git
@@ -33,6 +33,23 @@ set :repo_url, 'git@example.com:me/my_repo.git'
 
 # Default value for keep_releases is 5
 # set :keep_releases, 5
+
+require 'aws-sdk'
+require 'yaml'
+
+aws_conf = YAML.load_file("#{ENV['HOME']}/.ssh/aws_deploy_user_credential.yml")
+aws_conf = aws_conf.merge({
+  :region => 'ap-northeast-1'
+})
+AWS.config(aws_conf)
+
+def stage
+  fetch(:stage).to_s
+end
+
+def instances(tag)
+  AWS.ec2.instances.select {|i| i.tags[:Name] == "#{tag}-#{stage}" && i.status == :running}.map(&:public_ip_address)
+end
 
 namespace :deploy do
 

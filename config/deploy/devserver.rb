@@ -4,9 +4,8 @@
 # is considered to be the first unless any hosts have the primary
 # property set.  Don't declare `role :all`, it's a meta role.
 
-role :app, %w{deploy@example.com}
-role :web, %w{deploy@example.com}
-role :db,  %w{deploy@example.com}
+
+role :app, instances("test")
 
 
 # Extended Server Syntax
@@ -25,21 +24,22 @@ server 'example.com', user: 'deploy', roles: %w{web app}, my_property: :my_value
 #
 # Global options
 # --------------
-#  set :ssh_options, {
-#    keys: %w(/home/rlisowski/.ssh/id_rsa),
-#    forward_agent: false,
-#    auth_methods: %w(password)
-#  }
+  set :ssh_options, {
+    user: 'snowtest', # overrides user setting above
+#    keys: %w(#{ENV['HOME']}/.ssh/aws_base.pem),
+    forward_agent: true,
+    auth_methods: %w(publickey)
+  }
 #
 # And/or per server (overrides global)
 # ------------------------------------
-# server 'example.com',
-#   user: 'user_name',
-#   roles: %w{web app},
-#   ssh_options: {
-#     user: 'user_name', # overrides user setting above
-#     keys: %w(/home/user_name/.ssh/id_rsa),
-#     forward_agent: false,
-#     auth_methods: %w(publickey password)
-#     # password: 'please use keys'
-#   }
+server 'example.com',
+ user: 'snowtest',
+  roles: %w{app},
+  ssh_options: {
+    user: 'snowtest', # overrides user setting above
+#    keys: %w(#{ENV['HOME']}/.ssh/aws_base.pem),
+    forward_agent: false,
+    auth_methods: %w(publickey)
+    # password: 'please use keys'
+  }
