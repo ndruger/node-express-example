@@ -21,6 +21,15 @@ module.exports = (grunt) ->
           dest: 'dst'
           ext: '.js'
         ]
+      app:
+        options:
+          sourceMap: true
+        files: [
+          expand: true
+          bare: true
+          src: 'app.coffee'
+          ext: '.js'
+        ]
       test:
         options:
           sourceMap: true

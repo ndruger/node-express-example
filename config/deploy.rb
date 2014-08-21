@@ -36,6 +36,7 @@ set :scm, :git
 
 require 'aws-sdk'
 require 'yaml'
+require 'sshkit/dsl'
 
 aws_conf = YAML.load_file("#{ENV['HOME']}/.ssh/aws_deploy_user_credential.yml")
 aws_conf = aws_conf.merge({
@@ -51,17 +52,29 @@ def instances(tag)
   AWS.ec2.instances.select {|i| i.tags[:Name] == "#{tag}-#{stage}" && i.status == :running}.map(&:public_ip_address)
 end
 
-namespace :deploy do
+[:forever, :npm, :grunt].each do |c|
+  SSHKit.config.command_map.prefix[c].unshift("source ~/.nvm/nvm.sh; nvm use v0.10.31;")
+end
 
-  desc 'Restart application'
+namespace :deploy do
   task :restart do
-    on roles(:app), in: :sequence, wait: 5 do
-      # Your restart mechanism here, for example:
-      # execute :touch, release_path.join('tmp/restart.txt')
+    on roles(:app), in: :sequence do
+      within current_path do
+        execute :forever, "stop", "#{current_path}/app.js; true"
+        execute :forever, "start", "#{current_path}/app.js"
+      end
     end
   end
 
-  after :publishing, :restart
+  task :npm_install do
+    on roles(:app), in: :sequence do
+      within release_path do
+        execute :npm, "install"
+        execute :grunt, "coffee"
+      end
+    end
+  end
+
 
   after :restart, :clear_cache do
     on roles(:web), in: :groups, limit: 3, wait: 10 do
@@ -71,5 +84,8 @@ namespace :deploy do
       # end
     end
   end
+
+  after :publishing, :restart
+  after :updated, :npm_install
 
 end

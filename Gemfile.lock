@@ -35,3 +35,4 @@ DEPENDENCIES
   aws-sdk (~> 1.49.0)
   capistrano (~> 3.2.0)
   gemrat
+  sshkit (= 1.5.1)
