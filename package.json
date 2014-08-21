@@ -21,7 +21,7 @@
     "colors": "~0.6.2",
     "cuid": "~1.2.4",
     "redis": "~0.12.1",
-    "continuation-local-storage": "~3.1.0",
+    "continuation-local-storage": "3.0.0",
     "cls-middleware": "~1.1.0",
     "lodash": "~2.4.1"
   },
