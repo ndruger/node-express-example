@@ -19,7 +19,7 @@ set :linked_files, %w{
 }
 
 # Default value for linked_dirs is []
-# set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
+set :linked_dirs, %w{log}
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
@@ -53,8 +53,24 @@ namespace :deploy do
   task :restart do
     on roles(:app), in: :sequence do
       within current_path do
-        execute :forever, "stop", "#{current_path}/app.js; true"
+        invoke "deploy:stop"
+        invoke "deploy:start"
+      end
+    end
+  end
+
+  task :start do
+    on roles(:app), in: :sequence do
+      within current_path do
         execute :forever, "start", "#{current_path}/app.js"
+      end
+    end
+  end
+
+  task :stop do
+    on roles(:app), in: :sequence do
+      within current_path do
+        execute :forever, "stop", "#{current_path}/app.js; true"
       end
     end
   end
