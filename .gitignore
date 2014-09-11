@@ -20,5 +20,8 @@ log/*
 npm-debug.log
 newrelic_agent.log
 
+# generated css
+!pubilc/stylesheets/*.css
+
 !.gitkeep
 
