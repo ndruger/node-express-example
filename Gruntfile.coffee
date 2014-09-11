@@ -9,6 +9,9 @@ module.exports = (grunt) ->
     clean: 
      js: ["routes/**/*.js", "test/**/*.js"]
     watch:
+      compass:
+        files: ['public/**/*.scss']
+        tasks: 'compass'
       coffee:
         files: ['src/**/*.coffee']
         tasks: 'coffee:src'
