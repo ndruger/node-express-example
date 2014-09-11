@@ -1,5 +1,10 @@
 module.exports = (grunt) ->
   grunt.initConfig(
+    compass:
+      all:
+        options:
+          cssDir: "public/stylesheets"
+          sassDir: "public/stylesheets"
     clean: 
      js: ["routes/**/*.js", "test/**/*.js"]
     watch:
@@ -44,5 +49,6 @@ module.exports = (grunt) ->
   )
   grunt.loadNpmTasks('grunt-contrib-watch')
   grunt.loadNpmTasks('grunt-contrib-coffee')
-  grunt.registerTask('default', ['watch'])
+  grunt.loadNpmTasks('grunt-contrib-compass')
+  grunt.registerTask('default', ['watch', 'compass'])
 

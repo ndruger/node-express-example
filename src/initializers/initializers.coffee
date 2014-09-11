@@ -7,6 +7,7 @@ baseLogger = require("morgan")
 cookieParser = require("cookie-parser")
 ns = cls.createNamespace("requestInfo")
 express = require("express")
+compass = require('node-compass')
 
 app.set "views", path.join(__dirname, "../../views")
 app.set "view engine", "jade"
@@ -17,6 +18,8 @@ app.use favicon()
 app.use bodyParser.json()
 app.use bodyParser.urlencoded()
 app.use cookieParser()
+app.use compass()
+
 app.use express.static(path.join(__dirname, "../../public"))
 
 app.use((req, res, next) ->
