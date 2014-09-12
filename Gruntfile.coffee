@@ -63,7 +63,7 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks('grunt-contrib-compass')
   grunt.loadNpmTasks('grunt-coffeelint')
   grunt.registerTask('default', [
-    'watch',
-    'compass'
+    'compass',
+    'coffee'
   ])
 

@@ -5,6 +5,9 @@
 $ git clone git@github.com:ndruger/express_sample.git
 $ cd express_sample
 $ npm install
+$ bundle install
+$ gem install bootstrap-sass #
+$ grunt
 $ node-dev app.coffee
 ```
 
