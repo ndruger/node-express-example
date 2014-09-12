@@ -5,6 +5,6 @@ router.get "/", (req, res) ->
   aa aa
 
 router.get "/simple", (req, res) ->
-  throw "simple error"
+  throw new Error("simple error")
 
 module.exports = router

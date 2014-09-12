@@ -32,6 +32,8 @@
     "grunt-contrib-coffee": "~0.10.1",
     "nodemailer-stub-transport": "~0.1.4",
     "express-debug": "~1.1.0",
-    "grunt-contrib-compass": "~1.0.1"
+    "grunt-contrib-compass": "~1.0.1",
+    "coffeelint": "~1.6.0",
+    "grunt-coffeelint": "0.0.13"
   }
 }

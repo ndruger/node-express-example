@@ -23,7 +23,7 @@ app.use compass()
 app.use express.static(path.join(__dirname, "../../public"))
 
 app.use((req, res, next) ->
-  id = require('cuid')();
+  id = require('cuid')()
   app.getRequestInfo().set('id', id)
   next()
 )

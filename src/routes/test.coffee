@@ -11,7 +11,7 @@ heavy = (cb) ->
     logger.info(2)
 #    newrelic.setTransactionName "neko2"
     setTimeout (->
-      #    c = c || newrelic.agent.tracer.getRequestInfo();
+      #    c = c || newrelic.agent.tracer.getRequestInfo()
       logger.info(3)
       cb()
     ), 1000

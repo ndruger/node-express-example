@@ -13,11 +13,18 @@ module.exports = (grunt) ->
         files: ['public/**/*.scss']
         tasks: 'compass'
       coffee:
-        files: ['src/**/*.coffee']
+        files: ['src/**/*.coffee', 'app.coffee']
         tasks: 'coffee:src'
       test:
         files: ['test/**/*.coffee']
         tasks: 'coffee:test'
+    coffeelint:
+      options:
+        configFile: '.coffeelint.json'
+      src:
+        files: [
+          src: ['src/**/*.coffee', 'app.coffee']
+        ]
     coffee:
       src:
         options:
@@ -54,5 +61,9 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks('grunt-contrib-watch')
   grunt.loadNpmTasks('grunt-contrib-coffee')
   grunt.loadNpmTasks('grunt-contrib-compass')
-  grunt.registerTask('default', ['watch', 'compass'])
+  grunt.loadNpmTasks('grunt-coffeelint')
+  grunt.registerTask('default', [
+    'watch',
+    'compass'
+  ])
 

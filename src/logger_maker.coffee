@@ -43,7 +43,13 @@ module.exports = {
     #  'nolog': [ '\\css', '\\.js', '\\.gif' ],
       format: (req, res, orig) ->
         t = orig(
-          ':remote-addr - - ":method :url HTTP/:http-version" :status :content-length ":referrer" ":user-agent" ":response-time ms"',
+          ':remote-addr - - ' +
+            '":method :url HTTP/:http-version"' +
+            ' :status' +
+            ' :content-length' +
+            ' ":referrer"' +
+            ' ":user-agent"' +
+            ' ":response-time ms"',
           req,
           res
         )

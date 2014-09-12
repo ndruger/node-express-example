@@ -1,5 +1,5 @@
 nodemailer = require("nodemailer")
-stubTransport = require('nodemailer-stub-transport');
+stubTransport = require('nodemailer-stub-transport')
 
 global.app.mailer = {}
 global.app.mailer.transport = nodemailer.createTransport(
