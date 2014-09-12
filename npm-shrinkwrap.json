@@ -676,11 +676,6 @@
       "version": "2.4.1",
       "from": "lodash@2.4.1",
       "resolved": "https://registry.npmjs.org/lodash/-/lodash-2.4.1.tgz"
-    },
-    "node-compass": {
-      "version": "0.2.3",
-      "from": "node-compass@0.2.3",
-      "resolved": "https://registry.npmjs.org/node-compass/-/node-compass-0.2.3.tgz"
     }
   }
 }
