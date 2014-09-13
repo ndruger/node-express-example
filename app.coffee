@@ -1,7 +1,7 @@
 require('source-map-support').install()
 
 express = require("express")
-newrelic = require("newrelic")
+#newrelic = require("newrelic")
 
 app = express()
 app.getRequestInfo = =>
