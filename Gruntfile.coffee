@@ -3,14 +3,12 @@ module.exports = (grunt) ->
     compass:
       all:
         options:
-#          cssDir: "public/stylesheets"
-#          sassDir: "public/stylesheets"
           config: "config/compass.rb"
     clean: 
      js: ["routes/**/*.js", "test/**/*.js"]
     watch:
       compass:
-        files: ['public/**/*.scss']
+        files: ['assets/**/*.scss']
         tasks: 'compass'
       coffee:
         files: ['src/**/*.coffee', 'app.coffee']
