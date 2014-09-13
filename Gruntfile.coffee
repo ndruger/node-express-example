@@ -21,7 +21,12 @@ module.exports = (grunt) ->
         configFile: '.coffeelint.json'
       src:
         files: [
-          src: ['src/**/*.coffee', 'app.coffee']
+          src: [
+            'src/**/*.coffee',
+             'app.coffee',
+             'test/**/*.coffee',
+             'assets/**/*.coffee'
+          ]
         ]
     coffee:
       src:
@@ -44,22 +49,25 @@ module.exports = (grunt) ->
           src: 'app.coffee'
           ext: '.js'
         ]
+    env:
       test:
-        options:
-          sourceMap: true
-        files: [
-          expand: true
-          bare: true
-          cwd: 'test/'
-          src: '**/*.coffee'
-          dest: 'test'
-          ext: '.js'
-        ]
+          NODE_PATH: '.' # Don't work fine for require(). Why?
+    mochaTest:
+      options: {}
+      all:
+        src: ['test/**/*.coffee']
+
   )
   grunt.loadNpmTasks('grunt-contrib-watch')
   grunt.loadNpmTasks('grunt-contrib-coffee')
   grunt.loadNpmTasks('grunt-contrib-compass')
   grunt.loadNpmTasks('grunt-coffeelint')
+  grunt.loadNpmTasks('grunt-env')
+  grunt.loadNpmTasks('grunt-mocha-test');
+  
+  grunt.registerTask('test', [
+    'env:test', 'mochaTest']
+  )
   grunt.registerTask('default', [
     'compass',
     'coffee'
