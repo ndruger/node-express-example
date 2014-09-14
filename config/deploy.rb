@@ -19,7 +19,10 @@ set :linked_files, %w{
 }
 
 # Default value for linked_dirs is []
-set :linked_dirs, %w{log}
+set :linked_dirs, %w{
+  log
+  node_modules
+}
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
