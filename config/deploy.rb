@@ -45,8 +45,13 @@ def instances(tag)
   AWS.ec2.instances.select {|i| i.tags[:Name] == "#{tag}-#{stage}" && i.status == :running}.map(&:public_ip_address)
 end
 
-[:forever, :npm, :grunt].each do |c|
-  SSHKit.config.command_map.prefix[c].unshift("source ~/.nvm/nvm.sh; nvm use v0.10.31;")
+[:forever, :npm, :grunt, :bundle].each do |c|
+  # :grunt needs compass etc
+  pre = "source ~/.nvm/nvm.sh;" +
+      "nvm use v0.10.31;" +
+      "source ~/.rvm/scripts/rvm;" +
+      "rvm use ruby-2.1.1;"
+  SSHKit.config.command_map.prefix[c].unshift(pre)
 end
 
 namespace :deploy do
@@ -75,10 +80,10 @@ namespace :deploy do
     end
   end
 
-  task :npm_install do
+  task :install_module do
     on roles(:app), in: :sequence do
       within release_path do
-        execute :bundle, "install"
+        execute :bundle
         execute :npm, "install"
         execute :grunt
       end
@@ -96,6 +101,6 @@ namespace :deploy do
   end
 
   after :publishing, :restart
-  after :updated, :npm_install
+  after :updated, :install_module
 
 end
