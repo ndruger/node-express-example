@@ -46,3 +46,4 @@ $ npm shrinkwrap
 
 # Other
 - grunt coffeelint
+	

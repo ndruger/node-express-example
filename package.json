@@ -26,21 +26,21 @@
     "lodash": "~2.4.1",
     "connect-assets": "~4.3.0",
     "coffee-script": "~1.8.0",
+    "grunt-contrib-compass": "~1.0.1",
+    "grunt-coffeelint": "0.0.13",
+    "grunt-contrib-coffee": "~0.10.1",
+    "grunt-env": "~0.4.1",
+    "grunt": "~0.4.5",
     "node-sass": "~0.9.3"
   },
   "devDependencies": {
-    "grunt": "~0.4.5",
     "grunt-contrib-watch": "~0.6.1",
-    "grunt-contrib-coffee": "~0.10.1",
     "nodemailer-stub-transport": "~0.1.4",
     "express-debug": "~1.1.0",
-    "grunt-contrib-compass": "~1.0.1",
     "coffeelint": "~1.6.0",
-    "grunt-coffeelint": "0.0.13",
     "supertest": "~0.13.0",
     "chai": "~1.9.1",
     "mocha": "~1.21.4",
-    "grunt-env": "~0.4.1",
     "grunt-mocha-test": "~0.11.0"
   }
 }

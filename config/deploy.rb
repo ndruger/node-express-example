@@ -78,8 +78,9 @@ namespace :deploy do
   task :npm_install do
     on roles(:app), in: :sequence do
       within release_path do
+        execute :bundle, "install"
         execute :npm, "install"
-        execute :grunt, "coffee"
+        execute :grunt
       end
     end
   end
