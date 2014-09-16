@@ -2,7 +2,6 @@ express = require("express")
 router = express.Router()
 nodemailer = require("nodemailer")
 
-newrelic = require("newrelic")
 http = require("http")
 
 heavy = (cb) ->

@@ -1,7 +1,6 @@
 require('source-map-support').install()
 
 express = require("express")
-#newrelic = require("newrelic")
 
 app = express()
 app.getRequestInfo = =>
@@ -11,6 +10,7 @@ app.getRequestInfo = =>
 global.app = app
 
 require("./dst/initializers/initializers")
+newrelic = require("newrelic") # Don't move to initializer
 require("./dst/routes")
 
 module.exports = app
