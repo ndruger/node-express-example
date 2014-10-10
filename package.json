@@ -31,7 +31,9 @@
     "grunt-contrib-coffee": "~0.10.1",
     "grunt-env": "~0.4.1",
     "grunt": "~0.4.5",
-    "node-sass": "~0.9.3"
+    "node-sass": "~0.9.3",
+    "q": "~1.0.1",
+    "express-resource-middleware": "~0.2.4"
   },
   "devDependencies": {
     "grunt-contrib-watch": "~0.6.1",

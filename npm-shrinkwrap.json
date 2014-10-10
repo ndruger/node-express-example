@@ -1281,6 +1281,22 @@
           }
         }
       }
+    },
+    "q": {
+      "version": "1.0.1",
+      "from": "q@"
+    },
+    "express-resource-middleware": {
+      "version": "0.2.4",
+      "from": "express-resource-middleware@",
+      "resolved": "https://registry.npmjs.org/express-resource-middleware/-/express-resource-middleware-0.2.4.tgz",
+      "dependencies": {
+        "lingo": {
+          "version": "0.0.5",
+          "from": "lingo@>= 0.0.4",
+          "resolved": "https://registry.npmjs.org/lingo/-/lingo-0.0.5.tgz"
+        }
+      }
     }
   }
 }
