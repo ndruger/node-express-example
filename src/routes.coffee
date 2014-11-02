@@ -5,7 +5,7 @@ users = require("./routes/users")
 test = require("./routes/test")
 mail = require("./routes/mail")
 error = require("./routes/error")
-#redisTest = require("./routes/redis_test")
+redisTest = require("./routes/redis_test")
 putil = require('./putil')
 util = require('util')
 
@@ -14,7 +14,7 @@ app.use "/users", users
 app.use "/test", test
 app.use "/mail", mail
 app.use "/error", error
-#app.use "/redis-test", redisTest
+app.use "/redis-test", redisTest
 
 #
 # error handling
