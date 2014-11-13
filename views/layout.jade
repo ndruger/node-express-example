@@ -7,13 +7,16 @@ html
   body
     script(src='//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js') # fix
     block content
+    //- Piwi
+    div.
+      #{ config.piwikUrl }
     script.
       var _paq = _paq || [];
       _paq.push(['setCustomVariable', 1, 'CompanySet', 'Group3', 'visit']);
       _paq.push(['trackPageView']);
       _paq.push(['enableLinkTracking']);
       (function() {
-        var u="//test-devserver2.syspri.org/piwik/";
+        var u="#{ config.piwikUrl }";
         _paq.push(['setTrackerUrl', u+'piwik.php']);
         _paq.push(['setSiteId', 1]);
         var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
@@ -25,7 +28,7 @@ html
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-      ga('create', 'UA-54988738-1', 'auto');
+      ga('create', '#{ config.gaId }', 'auto');
       ga('require', 'displayfeatures');
       ga('send', 'pageview');
     

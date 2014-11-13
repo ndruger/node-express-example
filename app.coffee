@@ -1,6 +1,7 @@
 require('source-map-support').install()
 cluster = require('cluster')
 _ = require('lodash')
+config = require('config')
 
 if cluster.isMaster
     cpuCount = require('os').cpus().length;
