@@ -4,18 +4,15 @@ module.exports = (grunt) ->
       all:
         options:
           config: "config/compass.rb"
-    clean: 
-     js: ["routes/**/*.js", "test/**/*.js"]
+    clean:
+      js: ["routes/**/*.js", "test/**/*.js"]
     watch:
       compass:
         files: ['assets/**/*.scss']
         tasks: 'compass'
       coffee:
         files: ['src/**/*.coffee', 'app.coffee']
-        tasks: 'coffee:src'
-      test:
-        files: ['test/**/*.coffee']
-        tasks: 'coffee:test'
+        tasks: 'coffee'
     coffeelint:
       options:
         configFile: '.coffeelint.json'
@@ -51,7 +48,7 @@ module.exports = (grunt) ->
         ]
     env:
       test:
-          NODE_PATH: '.' # Don't work fine for require(). Why?
+        NODE_PATH: '.' # Don't work fine for require(). Why?
     mochaTest:
       options: {}
       all:
@@ -63,7 +60,7 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks('grunt-contrib-compass')
   grunt.loadNpmTasks('grunt-coffeelint')
   grunt.loadNpmTasks('grunt-env')
-  grunt.loadNpmTasks('grunt-mocha-test');
+  grunt.loadNpmTasks('grunt-mocha-test')
   
   grunt.registerTask('test', [
     'env:test', 'mochaTest']
