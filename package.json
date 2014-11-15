@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node app.js",
-    "test": "NODE_PATH=. mocha --compilers coffee:coffee-script/register test/**/*.coffee"
+    "test": "NODE_ENV=test NODE_PATH=. mocha --compilers coffee:coffee-script/register test/**/*.coffee"
   },
   "dependencies": {
     "body-parser": "~1.0.0",
