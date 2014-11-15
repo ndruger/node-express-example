@@ -4,14 +4,13 @@ _ = require('lodash')
 config = require('config')
 
 if cluster.isMaster
-    cpuCount = require('os').cpus().length;
-
-    _.times(cpuCount, =>
-      cluster.fork()
-    )
+  cpuCount = require('os').cpus().length
+  _.times(cpuCount, =>
+    cluster.fork()
+  )
 
 else
-
+  
   express = require("express")
 
   app = express()
