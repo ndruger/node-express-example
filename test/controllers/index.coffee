@@ -3,7 +3,7 @@ chai = require('chai')
 request = require('supertest')
 
 express = require('express');
-app = require('../../app.js')
+app = require('app.js')
 #server = http.createServer(app).listen(80)
 
 describe('GET /', ->
