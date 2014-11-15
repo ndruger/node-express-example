@@ -5,7 +5,8 @@ users = require("./routes/users")
 test = require("./routes/test")
 mail = require("./routes/mail")
 error = require("./routes/error")
-redisTest = require("./routes/redis_test")
+if app.get("env") != "test"
+  redisTest = require("./routes/redis_test")
 putil = require('./putil')
 util = require('util')
 
