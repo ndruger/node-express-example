@@ -1,3 +1,6 @@
 language: node_js
 node_js:
   - 0.10.32
+before_script:
+  - coffee -c app.coffee
+  - coffee -c -o dst src
