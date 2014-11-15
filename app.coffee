@@ -20,7 +20,10 @@ else
   global.app = app
 
   require("./dst/initializers/initializers")
-  newrelic = require("newrelic") # Don't move to initializer
+  
+  if process.env.NODE_ENV != 'test'
+    newrelic = require("newrelic") # Don't move to initializer
+   
   require("./dst/routes")
 
   module.exports = app
