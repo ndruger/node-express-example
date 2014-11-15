@@ -48,6 +48,7 @@ module.exports = (grunt) ->
         ]
     env:
       test:
+        NODE_ENV: 'test'
         NODE_PATH: '.' # Don't work fine for require(). Why?
     mochaTest:
       options: {}
