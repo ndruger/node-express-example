@@ -14,7 +14,9 @@ app.use "/users", users
 app.use "/test", test
 app.use "/mail", mail
 app.use "/error", error
-app.use "/redis-test", redisTest
+
+if app.get("env") != "test"
+  app.use "/redis-test", redisTest
 
 #
 # error handling
