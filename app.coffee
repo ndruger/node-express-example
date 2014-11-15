@@ -27,4 +27,7 @@ else
   require("./dst/routes")
 
   module.exports = app
-  app.listen 3000
+  if process.env.NODE_ENV == 'test'
+    app.listen()
+  else
+    app.listen(3000)
