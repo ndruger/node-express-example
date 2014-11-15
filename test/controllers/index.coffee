@@ -2,7 +2,7 @@ http = require('http')
 chai = require('chai')
 request = require('supertest')
 
-express = require('express');
+express = require('express')
 app = require('app.js')
 #server = http.createServer(app).listen(80)
 
