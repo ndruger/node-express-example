@@ -8,6 +8,7 @@ if cluster.isMaster && config.useCluster
   _.times(cpuCount, ->
     cluster.fork()
   )
+
 else
   express = require("express")
 
