@@ -10,9 +10,9 @@ loggerMaker.configure({
     type: "dateFile",
     filename: "log/access.log",
     pattern: "-yyyy-MM-dd",
-    alwaysIncludePattern: true
+#    alwaysIncludePattern: true
   }],
-# replaceConsole: true
+  replaceConsole: true
 })
 putil.updateDP
 

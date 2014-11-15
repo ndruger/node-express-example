@@ -1,5 +1,6 @@
 log4js = require('log4js')
 _ = require('lodash')
+require('colors')
 
 getRequestIdProc = null
 
@@ -11,7 +12,7 @@ wrapLogger = (logger) ->
     wrap(logger, name, (orig) =>
       (->
         newArgs = Array.prototype.slice.apply(arguments)
-        newArgs[0] = "[#{getRequestId().blue}] #{newArgs[0]}"
+        newArgs[0] = "[#{(getRequestId() || '').blue}] #{newArgs[0]}"
         orig.apply(logger, newArgs)
       )
     )

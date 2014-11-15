@@ -5,16 +5,15 @@ config = require('config')
 
 if cluster.isMaster
   cpuCount = require('os').cpus().length
-  _.times(cpuCount, =>
+  _.times(cpuCount, ->
     cluster.fork()
   )
 
 else
-  
   express = require("express")
 
   app = express()
-  app.getRequestInfo = =>
+  app.getRequestInfo = ->
     getNamespace = require('continuation-local-storage').getNamespace
     getNamespace('requestInfo')
 
