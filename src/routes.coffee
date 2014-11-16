@@ -1,5 +1,9 @@
 app = global.app
 
+util = require('util')
+_ = require('lodash')
+config = require('config')
+
 routes = require("./controllers/index")
 users = require("./controllers/users")
 clss = require("./controllers/clss")
@@ -7,8 +11,18 @@ mails = require("./controllers/mails")
 errors = require("./controllers/errors")
 if app.get("env") != "test"
   redisTest = require("./controllers/redis_test")
+
 putil = require('./putil')
-util = require('util')
+
+# override render for config
+app.use((req, res, next) ->
+  orig = res.render
+  res.render = (view, options, cb) =>
+    newOptions = _.extend({config: config},  options)
+    orig.call(res, view, newOptions, cb)
+  next()
+)
+
 
 app.use "/", routes
 app.use "/users", users
