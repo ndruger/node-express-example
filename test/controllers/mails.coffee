@@ -5,7 +5,7 @@ express = require('express')
 
 app = require('app')
 
-describe('POST /', ->
+describe('POST /mails', ->
   it('sends mail', (done) ->
     app.deliveries = []
 
