@@ -27,8 +27,9 @@ else
    
   require("./dst/routes")
 
+  port = if process.env.NODE_ENV == 'test' then undefined else 3000
+  app.listen(port, ->
+    logger.info('Listening');
+  )
+  
   module.exports = app
-  if process.env.NODE_ENV == 'test'
-    app.listen()
-  else
-    app.listen(3000)

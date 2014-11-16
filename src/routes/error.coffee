@@ -1,10 +1,10 @@
 express = require("express")
 router = express.Router()
 
-router.get "/", (req, res) ->
-  aa aa
-
-router.get "/simple", (req, res) ->
-  throw new Error("simple error")
+router.post "/", (req, res, next) ->
+  if req.param('simple') == true
+    throw new Error("simple error")
+  else
+    aa aa
 
 module.exports = router

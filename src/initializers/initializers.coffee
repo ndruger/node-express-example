@@ -7,6 +7,7 @@ baseLogger = require("morgan")
 cookieParser = require("cookie-parser")
 ns = cls.createNamespace("requestInfo")
 express = require("express")
+multer = require('multer')
 
 app.use require("connect-assets")(
   paths: [
@@ -23,6 +24,7 @@ app.use baseLogger('dev')
 app.use favicon()
 app.use bodyParser.json()
 app.use bodyParser.urlencoded()
+#app.use multer
 app.use cookieParser()
 
 app.use express.static(path.join(__dirname, "../../assets"))
