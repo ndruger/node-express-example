@@ -9,5 +9,5 @@ global.app.mailer.transport = nodemailer.createTransport(
 )
  
 global.app.mailer.transport.on('log', (data) ->
-  console.log(data.message)
+  logger.info(data.message)
 )

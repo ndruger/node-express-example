@@ -1,8 +1,8 @@
 express = require("express")
-router = express.Router()
 nodemailer = require("nodemailer")
-
 http = require("http")
+
+router = express.Router()
 
 heavy = (cb) ->
   logger.info(1)

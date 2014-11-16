@@ -1,4 +1,5 @@
 express = require("express")
+
 router = express.Router()
 
 router.get "/", (req, res, next) ->
@@ -9,7 +10,7 @@ router.get "/", (req, res, next) ->
     text: "hello world!"
   }
 
-  app.mailer.transport.sendMail(opt, (error, info) =>
+  app.mailer.transport.sendMail(opt, (error, info) ->
     res.send info
   )
 
