@@ -4,7 +4,7 @@ router = express.Router()
 redis = require("redis")
 client = redis.createClient()
 
-router.get "/1", (req, res) ->
+router.get "/1", (req, res, next) ->
   client.set("string key", "string val", redis.print)
   res.send "hello world"
 

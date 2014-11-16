@@ -15,7 +15,7 @@ heavy = (cb) ->
       cb()
     ), 1000
 
-router.get "/1", (req, res) ->
+router.get "/1", (req, res, next) ->
   DP('test')
   app.getRequestInfo().set('name', 'test3')
   heavy ->
