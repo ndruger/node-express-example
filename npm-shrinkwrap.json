@@ -1267,6 +1267,10 @@
         }
       }
     },
+    "node-uuid": {
+      "version": "1.4.1",
+      "from": "node-uuid@"
+    },
     "nodemailer": {
       "version": "1.0.4",
       "from": "nodemailer@1.0.4",

@@ -9,7 +9,7 @@ wrap = (context, name, makeProc) ->
 
 wrapLogger = (logger) ->
   _.each(['info', 'debug', 'warn', 'error'], (name) ->
-    wrap(logger, name, (orig) =>
+    wrap(logger, name, (orig) ->
       (->
         newArgs = Array.prototype.slice.apply(arguments)
         newArgs[0] = "[#{(getRequestId() || '').blue}] #{newArgs[0]}"

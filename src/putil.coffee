@@ -1,6 +1,7 @@
+uuidLib = require('node-uuid')
 
 createId = ->
-  Math.floor(Math.random() * 10000000)
+  uuidLib.v4()
 
 sendExceptionMail = (err) -> # TODO: use config
   opt = {
