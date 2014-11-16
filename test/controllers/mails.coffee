@@ -1,16 +1,19 @@
 http = require('http')
-chai = require('chai')
+expect = require('chai').expect
 request = require('supertest')
 express = require('express')
 
 app = require('app')
 
-describe('GET /', ->
-  it('respond with json', (done) ->
+describe('POST /', ->
+  it('sends mail', (done) ->
+    app.deliveries = []
+
     request(app)
-      .get('/')
+      .post('/mails')
       .expect(200)
       .end((err, res) ->
+        expect(app.deliveries.length).gt(0)
         if err
           return done(err)
         done()

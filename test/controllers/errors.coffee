@@ -5,12 +5,13 @@ express = require('express')
 
 app = require('app')
 
-describe('GET /', ->
-  it('respond with json', (done) ->
+describe('POST /errors', ->
+  it('makes 500', (done) ->
     request(app)
-      .get('/')
-      .expect(200)
+      .post('/errors')
+      .expect(500)
       .end((err, res) ->
+        DP(err)
         if err
           return done(err)
         done()

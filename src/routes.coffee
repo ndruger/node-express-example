@@ -3,7 +3,7 @@ app = global.app
 routes = require("./controllers/index")
 users = require("./controllers/users")
 clss = require("./controllers/clss")
-mail = require("./controllers/mail")
+mails = require("./controllers/mail")
 errors = require("./controllers/errors")
 if app.get("env") != "test"
   redisTest = require("./controllers/redis_test")
@@ -13,7 +13,7 @@ util = require('util')
 app.use "/", routes
 app.use "/users", users
 app.use "/clss", clss
-app.use "/mail", mail
+app.use "/mails", mails
 app.use "/errors", errors
 
 if app.get("env") != "test"
