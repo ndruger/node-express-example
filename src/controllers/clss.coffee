@@ -11,7 +11,7 @@ heavy = (cb) ->
     cb()
   )
 
-router.get "/", (req, res, next) ->
+router.post "/", (req, res, next) ->
   logger.info('cls sample')
   app.getRequestInfo().set('name', putil.createId())
   heavy ->
