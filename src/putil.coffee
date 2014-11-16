@@ -1,5 +1,5 @@
 
-createId = =>
+createId = ->
   Math.floor(Math.random() * 10000000)
 
 sendExceptionMail = (err) -> # TODO: use config
@@ -9,7 +9,7 @@ sendExceptionMail = (err) -> # TODO: use config
     title: "[Exception][#{app.get('env')}] #{err.message}",
     text: err.stack,
   }
-  app.mailer.transport.sendMail(opt, =>)
+  app.mailer.transport.sendMail(opt, ->)
   
 # For file and line
 colors = require('colors')

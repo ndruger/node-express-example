@@ -2,9 +2,9 @@ app = global.app
 
 routes = require("./controllers/index")
 users = require("./controllers/users")
-test = require("./controllers/test")
+test = require("./controllers/clss")
 mail = require("./controllers/mail")
-error = require("./controllers/error")
+error = require("./controllers/errors")
 if app.get("env") != "test"
   redisTest = require("./controllers/redis_test")
 putil = require('./putil')

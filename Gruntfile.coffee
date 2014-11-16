@@ -62,6 +62,7 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks('grunt-coffeelint')
   grunt.loadNpmTasks('grunt-env')
   grunt.loadNpmTasks('grunt-mocha-test')
+  grunt.loadNpmTasks('grunt-notify')
   
   grunt.registerTask('test', [
     'env:test', 'mochaTest']
