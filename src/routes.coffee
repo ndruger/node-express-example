@@ -36,7 +36,7 @@ if app.get("env") != "test"
 #
 # error handling
 #
-if app.get("env") == "development"
+if app.get("env") == "development" || app.get("env") == "test"
   app.use (err, req, res, next) ->
     putil.sendExceptionMail(err)
     res.status err.status or 500

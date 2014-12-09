@@ -4,3 +4,5 @@ node_js:
 before_script:
   - coffee -c app.coffee
   - coffee -c -o dst src
+notifications:
+  webhooks: http://test-devserver.syspri.org:9999/hubot/travis
