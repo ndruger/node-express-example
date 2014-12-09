@@ -9,7 +9,6 @@ $ grunt coffee
 $ node app.js
 ```
 
-
 ## Test
 
 ```bash
