@@ -50,11 +50,10 @@ end
 
 [:forever, :npm, :grunt, :bundle].each do |c|
   # :grunt needs compass etc
-  pre = "source ~/.nvm/nvm.sh;" +
-      "nvm use v0.10.31;" +
-      "source ~/.rvm/scripts/rvm;" +
-      "rvm use ruby-2.1.1;" +
-      "NODE_ENV=production "
+  pre = "source ~/node-express-example-config.sh;" +
+        "source ~/.rvm/scripts/rvm;" +
+        "rvm use ruby-2.1.1;" +
+        "NODE_ENV=production "
   SSHKit.config.command_map.prefix[c].unshift(pre)
 end
 
@@ -84,6 +83,15 @@ namespace :deploy do
     end
   end
 
+  task :copy_config do
+    on roles(:app), in: :sequence do
+      within release_path do
+        execute :echo, "#{release_path}"
+        execute :cp, "#{release_path}/config/node-express-example-config.sh", "~/node-express-example-config.sh"
+      end
+    end
+  end
+
   task :install_module do
     on roles(:app), in: :sequence do
       within release_path do
@@ -105,6 +113,7 @@ namespace :deploy do
   end
 
   after :publishing, :restart
+  after :updating, :copy_config
   after :updated, :install_module
 
 end
