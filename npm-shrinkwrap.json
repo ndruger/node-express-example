@@ -1377,6 +1377,11 @@
       "from": "redis@0.12.1",
       "resolved": "https://registry.npmjs.org/redis/-/redis-0.12.1.tgz"
     },
+    "replify": {
+      "version": "1.2.0",
+      "from": "replify@",
+      "resolved": "https://registry.npmjs.org/replify/-/replify-1.2.0.tgz"
+    },
     "source-map-support": {
       "version": "0.2.7",
       "from": "source-map-support@0.2.7",

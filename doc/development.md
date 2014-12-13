@@ -44,6 +44,13 @@ $ npm ${module_name] --save
 $ npm shrinkwrap
 ```
 
+# REPL
+
+```
+$ npm install -g repl-client
+$ rc /tmp/repl/node-express-example.sock
+```
+
 # Other
 - grunt coffeelint
 	

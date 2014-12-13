@@ -1,7 +1,11 @@
 require('source-map-support').install()
+
+process.env.NODE_ENV ||= 'development'
+
 cluster = require('cluster')
 _ = require('lodash')
 config = require('config')
+
 
 if cluster.isMaster && config.useCluster
   cpuCount = require('os').cpus().length
@@ -11,6 +15,10 @@ if cluster.isMaster && config.useCluster
 
 else
   express = require("express")
+
+  if config.useRepl
+    replify = require('replify')
+    replify('node-express-example', require('http').createServer())
 
   app = express()
 
