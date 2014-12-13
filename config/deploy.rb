@@ -51,8 +51,6 @@ end
 [:forever, :npm, :grunt, :bundle].each do |c|
   # :grunt needs compass etc
   pre = "source ~/node-express-example-config.sh;" +
-        "source ~/.rvm/scripts/rvm;" +
-        "rvm use ruby-2.1.1;" +
         "NODE_ENV=production "
   SSHKit.config.command_map.prefix[c].unshift(pre)
 end
