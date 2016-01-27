@@ -2,10 +2,12 @@
 
 [![Build Status](https://secure.travis-ci.org/ndruger/node-express-example.png?branch=master)](http://travis-ci.org/ndruger/node-express-example)
 
+
 ## Run
 
 ```bash
-$ grunt coffee
+$ npm install
+$ npm run build
 $ node app.js
 ```
 
