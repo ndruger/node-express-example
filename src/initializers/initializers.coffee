@@ -23,7 +23,7 @@ app.use clsify(ns)
 app.use baseLogger('dev')
 app.use favicon()
 app.use bodyParser.json()
-app.use bodyParser.urlencoded()
+app.use bodyParser.urlencoded({extended: true})
 #app.use multer
 app.use cookieParser()
 
